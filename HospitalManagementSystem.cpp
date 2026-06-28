@@ -196,55 +196,6 @@ void searchP_W_Name(string name)
     }
 }
 
-
-void UpdateP(int id)
-{
-    for (int i = 0; i < Pcount; i++)
-    {
-        if (patient[i].id == id)
-        {
-            int n;
-            cout << "1. Update Patient Name." << endl
-                 << "2.\n Update Patient Age." << endl
-                 << "3.\n Update Patient Blood Group." << endl
-                 << "4.\n Update Patient Disease." << endl
-                 << "5.\n Update Patient Address." << endl;
-            cout << "Select an option to update :";
-            cin >> n;
-            switch (n)
-            {
-            case 1:
-                cin.ignore(1000, '\n');
-                cout << "Enter New Patient Name :";
-                getline(cin, patient[i].name);
-                break;
-            case 2:
-                cout << "Enter New Patient Age :";
-                cin >> patient[i].age;
-                break;
-            case 3:
-                cin.ignore(1000, '\n');
-                cout << "Enter New Patient Blood Group :";
-                getline(cin, patient[i].bloodgroup);
-                break;
-            case 4:
-                cin.ignore(1000, '\n');
-                cout << "Enter New Patient Disease :";
-                getline(cin, patient[i].disease);
-                break;
-            case 5:
-                cin.ignore(1000, '\n');
-                cout << "Enter New Patient Address :";
-                getline(cin, patient[i].address);
-                break;
-            default:
-                cout << "Invalid Input.";
-            }
-            cout << "Patient Information Updated Successfully." << endl;
-        }
-    }
-}
-
 int main()
 {
 
@@ -259,7 +210,7 @@ int main()
     {
         cout << "Login Successful";
         do
-        {
+        { 
             cout << "Select a option to perform task." << endl;
             cout << "1.\t Admin Panel." << endl;
             cout << "2.\t Patient Panel." << endl;
@@ -317,21 +268,11 @@ int main()
                     cout << "2.\t Discharge Patient." << endl;
                     cout << "3.\t Search Patient by ID." << endl;
                     cout << "4.\t Search Patient by Name." << endl;
-                    cout << "5.\t Update Patient Information." << endl;
                     cout << "0.\t Exit." << endl;
                     cout << " Enter your choice : ";
                     cin >> b;
 
-                    if (b > 5 || b < 0)
-                    {
-                        do
-                        {
-                            cout << "Invalid Input. Please Enter again (0-5)." << endl;
-                            cin >> b;
-                        } while (b > 5 || b < 0);
-                    }
 
-                } while (b > 5 || b < 0);
 
                 switch (b)
                 {
@@ -365,18 +306,19 @@ int main()
                     break;
                 }
 
-                case 5:
-                    cout << "Welcome to the Update Patient Information Section." << endl;
-                    cout << "Enter Patient ID to Update :";
-                    int id2;
-                    cin >> id2;
-                    UpdateP(id2);
-                    break;
+               
 
                 case 0:
                     cout << "Back to Main Menu." << endl;
                     break;
+
+                    default:
+                    cout << "Invalid Input";
+                    break;
+
                 }
+
+            }while(b!=0);
 
                 break;
             case 3:
